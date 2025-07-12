@@ -1,0 +1,14 @@
+bcrypt
+celery
+fastapi
+httpx
+passlib
+psycopg2-binary
+pydantic
+python-dotenv
+python-jose
+python-jose[cryptography]
+redis
+sqlalchemy
+stripe
+uvicorn
