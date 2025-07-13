@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: gemini-backend
+    env: python
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    buildCommand: pip install -r requirements.txt
+    envVars: [ { fromDotEnv: true } ]
+
+  - type: worker
+    name: redis-task-worker
+    env: python
+    startCommand: python redis_worker.py
+    buildCommand: pip install -r requirements.txt
+    envVars: [ { fromDotEnv: true } ]

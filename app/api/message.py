@@ -26,8 +26,9 @@ def send_message(chatroom_id: int, data: MessageCreate, db: Session = Depends(ge
     db.commit()
     db.refresh(msg)
 
-    # Trigger async Gemini response
-    send_to_groq.delay(chatroom_id, msg.id, data.content)
+    # Trigger async Gemini response using Redis queue
+    from app.queue.redis_queue import push_task
+    push_task(chatroom_id, msg.id, data.content)
 
     return msg
 
