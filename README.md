@@ -2,8 +2,8 @@
 
 A scalable, production-ready backend system that replicates Gemini-style functionality: OTP-based authentication, chatroom management, asynchronous AI response via Redis queue, and Stripe-powered subscriptions.
 
-Live Deployment: [https://gemini-backend-bjhb.onrender.com](https://gemini-backend-bjhb.onrender.com)
-Postman Collection: *\[https://lunar-resonance-556494.postman.co/workspace/Demo~0a778c18-57ff-4c69-92c5-dfa9f196ef0b/collection/23158238-a9d823d7-5997-473b-bf1d-71c6c7c37f43?action=share&creator=23158238&active-environment=23158238-58645550-6c96-439d-8deb-29dce5d21aac]*
+Live Deployment: [link](https://gemini-backend-bjhb.onrender.com)
+Postman Collection: [link](https://lunar-resonance-556494.postman.co/workspace/Demo~0a778c18-57ff-4c69-92c5-dfa9f196ef0b/collection/23158238-a9d823d7-5997-473b-bf1d-71c6c7c37f43?action=share&creator=23158238&active-environment=23158238-58645550-6c96-439d-8deb-29dce5d21aac)
 
 ---
 
