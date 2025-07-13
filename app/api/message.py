@@ -34,24 +34,34 @@ def send_message(chatroom_id: int, data: MessageCreate, db: Session = Depends(ge
 
 
 
-@router.get("/usage")
-def usage_info(db: Session = Depends(get_db), user=Depends(get_current_user)):
+@router.get("/{chatroom_id}/usage")
+def chatroom_usage(chatroom_id: int, db: Session = Depends(get_db), user=Depends(get_current_user)):
     from datetime import datetime, timedelta
     today = datetime.utcnow().date()
     start = datetime(today.year, today.month, today.day)
     end = start + timedelta(days=1)
 
+    chatroom = db.query(Chatroom).filter_by(id=chatroom_id, user_id=user.id).first()
+    if not chatroom:
+        raise HTTPException(status_code=404, detail="Chatroom not found")
+
     count = (
         db.query(Message)
         .filter(
+            Message.chatroom_id == chatroom_id,
             Message.sender == "user",
             Message.created_at >= start,
-            Message.created_at < end,
-            Message.chatroom.has(user_id=user.id)
+            Message.created_at < end
         )
         .count()
     )
-    return {"used": count, "limit": None if user.subscription == "Pro" else int(os.getenv("BASIC_DAILY_LIMIT", 5))}
+
+    return {
+        "chatroom_id": chatroom_id,
+        "used_today": count,
+        "limit": None if user.subscription == "Pro" else int(os.getenv("BASIC_DAILY_LIMIT", 5))
+    }
+
 
 
 @router.get("/{chatroom_id}/messages", response_model=List[MessageOut])
