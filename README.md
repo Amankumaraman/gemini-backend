@@ -4,7 +4,8 @@ This project is a backend clone inspired by Google Gemini, built with **FastAPI*
 
 ## 🚀 Live Deployment
 
-- **Backend URL**: [https://gemini-backend-bjhb.onrender.com](https://gemini-backend-bjhb.onrender.com)
+- **Backend URL**: [Render](https://gemini-backend-bjhb.onrender.com)
+- **Postman Collection URL**: [Postman](https://lunar-resonance-556494.postman.co/workspace/Demo~0a778c18-57ff-4c69-92c5-dfa9f196ef0b/collection/23158238-a9d823d7-5997-473b-bf1d-71c6c7c37f43?action=share&creator=23158238)
 
 ---
 
