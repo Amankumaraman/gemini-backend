@@ -10,7 +10,7 @@ DOMAIN = os.getenv("DOMAIN")
 
 def create_stripe_checkout(user: User) -> str:
     checkout_session = stripe.checkout.Session.create(
-        customer_email=user.mobile + "@example.com",  # for demo purposes
+        customer_email=user.mobile + "@example.com",
         payment_method_types=["card"],
         line_items=[{
             "price_data": {
@@ -26,6 +26,10 @@ def create_stripe_checkout(user: User) -> str:
         mode="subscription",
         success_url=f"{DOMAIN}/success?session_id={{CHECKOUT_SESSION_ID}}",
         cancel_url=f"{DOMAIN}/cancel",
-        metadata={"user_id": str(user.id)}
+        subscription_data={
+            "metadata": {
+                "user_id": str(user.id)
+            }
+        }
     )
     return checkout_session.url
