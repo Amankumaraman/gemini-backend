@@ -76,10 +76,7 @@ Postman Collection: [link](https://lunar-resonance-556494.postman.co/workspace/D
 | ------------------------- | ------ | ---- | ------------------------------------ |
 | `/auth/signup`            | POST   | ❌    | Register user (mobile only)          |
 | `/auth/send-otp`          | POST   | ❌    | Generate & send OTP (in response)    |
-| `/auth/verify-otp`        | POST   | ❌    | Verify OTP and receive token         |
-| `/auth/forgot-password`   | POST   | ❌    | Send OTP for reset                   |
-| `/auth/change-password`   | POST   | ✅    | Change password                      |
-| `/user/me`                | GET    | ✅    | Get current user profile             |
+| `/auth/verify-otp`        | POST   | ❌    | Verify OTP and receive token         |            |
 | `/chatroom`               | POST   | ✅    | Create a new chatroom                |
 | `/chatroom`               | GET    | ✅    | List all chatrooms (cached)          |
 | `/chatroom/{id}`          | GET    | ✅    | Get single chatroom                  |
